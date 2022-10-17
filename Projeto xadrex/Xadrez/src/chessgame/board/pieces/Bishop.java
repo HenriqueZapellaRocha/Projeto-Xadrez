@@ -10,6 +10,12 @@ public class Bishop extends Piece {
         super(name, position, color);
     }
 
+    @Override
+    public String possibleMoivments(Piece piece) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
     
 
     

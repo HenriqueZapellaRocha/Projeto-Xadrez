@@ -1,12 +1,16 @@
 package chessgame.board.pieces;
+import java.util.ArrayList;
 import chessgame.board.pieces.enums.Color;
+import java.util.List;
 
 
-public class Piece {
+public abstract class Piece {
 
     private String name;
     private Position position;
     private Color color;
+    
+    List<Position> possibleMoviments = new ArrayList<>();
 
     public Piece() {
     }
@@ -33,11 +37,7 @@ public class Piece {
         return color;
     }    
 
-    public String possibleMoviment(Position position) {
-        return null;
-    
-    }
-
+   
     public static int setColumn(int column) {
         return 0;
     }
@@ -51,4 +51,12 @@ public class Piece {
         return name;
     }
     
+    public abstract String possibleMoivments(Piece piece);
+        
+    
+
+
+   
+
+
 }

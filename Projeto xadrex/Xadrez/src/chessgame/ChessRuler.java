@@ -12,6 +12,7 @@ import chessgame.board.pieces.enums.Color;
 import java.util.List;
 import java.util.ArrayList;
 
+
 public class ChessRuler {
     
     private ChessBoard chessBoard;
@@ -120,10 +121,22 @@ public class ChessRuler {
 
         // call ther boarderprinter method and return the result of it
         return chessBoard.boarderPrinter(chessboard);
-
-        
     }
     
+    public String searchAndPossibility() {
+        for(Piece list : piecesList) {
+        if(list.getPosition().getRow() == 6 && list.getPosition().getColumn() == 0) {
+        return list.possibleMoivments(list);
+        }
+        }
+       return null;
+      
+
+    }
+
+
+
+
     
    }
 

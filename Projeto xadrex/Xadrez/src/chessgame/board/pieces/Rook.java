@@ -9,6 +9,12 @@ public class Rook extends Piece {
 
     public Rook() {
     }
+
+    @Override
+    public String possibleMoivments(Piece piece) {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
     
 

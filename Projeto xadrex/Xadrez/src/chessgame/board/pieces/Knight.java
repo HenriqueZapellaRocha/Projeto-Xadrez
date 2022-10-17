@@ -9,6 +9,12 @@ public class Knight extends Piece {
 
     public Knight() {
     }
+
+    @Override
+    public String possibleMoivments(Piece piece) {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
     
 

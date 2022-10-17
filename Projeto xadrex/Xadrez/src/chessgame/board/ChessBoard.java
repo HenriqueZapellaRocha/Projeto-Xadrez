@@ -1,7 +1,4 @@
 package chessgame.board;
-import java.util.Arrays;
-
-import chessgame.board.pieces.Piece;
 import chessgame.board.pieces.Position;
 
 public class ChessBoard {
@@ -30,7 +27,7 @@ public class ChessBoard {
        
 
           for (int i = 0; i < positions.getColumn(); i++) {
-           boardprinted += i + 1 + " ";
+           boardprinted += i + 1 + "  ";
             for(int j = 0; j < positions.getRow(); j++) {
             if (chessboard[i][j] == null) {
             boardprinted += "- ";
@@ -50,7 +47,8 @@ public class ChessBoard {
             } 
             boardprinted += "\n";
         }
-        boardprinted += "  1 2 3 4 5 6 7 8";
+        boardprinted +=("   ---------------");
+        boardprinted += "\n   A B C D E F G H";
         return boardprinted;
     }
 

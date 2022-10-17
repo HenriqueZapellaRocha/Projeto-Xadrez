@@ -9,6 +9,12 @@ public class Queen extends Piece {
 
     public Queen() {
     }
+
+    @Override
+    public String possibleMoivments(Piece piece) {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
     
 
