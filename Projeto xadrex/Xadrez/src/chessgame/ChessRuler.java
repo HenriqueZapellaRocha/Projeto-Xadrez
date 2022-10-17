@@ -10,6 +10,8 @@ import chessgame.board.pieces.Queen;
 import chessgame.board.pieces.Rook;
 import chessgame.board.pieces.enums.Color;
 import java.util.List;
+
+
 import java.util.ArrayList;
 
 
@@ -123,21 +125,40 @@ public class ChessRuler {
         return chessBoard.boarderPrinter(chessboard);
     }
     
-    public String searchAndPossibility() {
+    public String moviment(Position position) {
         for(Piece list : piecesList) {
-        if(list.getPosition().getRow() == 6 && list.getPosition().getColumn() == 0) {
+        if(list.getPosition().getRow() == position.getRow() && list.getPosition().getColumn() == position.getColumn()) {
         return list.possibleMoivments(list);
         }
         }
-       return null;
       
+        return null;
 
     }
 
 
 
+    public void possibleMovimentList(Position position, Position positionNew) {
+        List<Position> posiblePositions = new ArrayList<>();
+        for(Piece list : piecesList) {
+            if(list.getPosition().getRow() == position.getRow() && list.getPosition().getColumn() == position.getColumn()) {
+        posiblePositions = list.mover(list);
+    }
+        }
 
+        for(Position c : posiblePositions) {
+            if(c.getRow() == positionNew.getRow() && c.getColumn() == positionNew.getColumn()) {
+                for(Piece piecelistt : piecesList) {
+                    if (piecelistt.getPosition().getRow() == position.getRow() && piecelistt.getPosition().getColumn() == position.getColumn()) {
+                    piecelistt.setPosition(new Position(positionNew.getRow(), positionNew.getColumn()));
+                    }
+                }
+            }
+        }
     
+    
+    }
+  
    }
 
 

@@ -50,8 +50,12 @@ public abstract class Piece {
     public String getName() {
         return name;
     }
+
+    
     
     public abstract String possibleMoivments(Piece piece);
+
+    public abstract List<Position> mover(Piece piece);
         
     
 

@@ -27,7 +27,7 @@ public class ChessBoard {
        
 
           for (int i = 0; i < positions.getColumn(); i++) {
-           boardprinted += i + 1 + "  ";
+           boardprinted += i + "  ";
             for(int j = 0; j < positions.getRow(); j++) {
             if (chessboard[i][j] == null) {
             boardprinted += "- ";
@@ -48,7 +48,7 @@ public class ChessBoard {
             boardprinted += "\n";
         }
         boardprinted +=("   ---------------");
-        boardprinted += "\n   A B C D E F G H";
+        boardprinted += "\n   0 1 2 3 4 5 6 7";
         return boardprinted;
     }
 

@@ -14,7 +14,14 @@ public class Program {
     chessRuler.addPieces();
     
     System.out.println(chessRuler.borderComander());
-    System.out.println(chessRuler.searchAndPossibility());
+    int row = sc.nextInt() ;
+    int  column = sc.nextInt() ;
+    System.out.println(chessRuler.moviment(new Position(row, column)));
+    int rowNew = sc.nextInt() ;
+    int columnNew = sc.nextInt() ;
+   chessRuler.possibleMovimentList(new Position(row, column), new Position(rowNew, columnNew));
+    System.out.println(chessRuler.borderComander());
+
 
    
 
