@@ -12,6 +12,7 @@ import chessgame.board.pieces.enums.Color;
 import java.util.List;
 
 
+
 import java.util.ArrayList;
 
 
@@ -125,20 +126,28 @@ public class ChessRuler {
         return chessBoard.boarderPrinter(chessboard);
     }
     
-    public String moviment(Position position) {
+    public String possibleMoviment(Position position) {
+        List<Position> possiblePositions = new ArrayList<>();
+        String returner = "";
         for(Piece list : piecesList) {
-        if(list.getPosition().getRow() == position.getRow() && list.getPosition().getColumn() == position.getColumn()) {
-        return list.possibleMoivments(list);
+            if(list.getPosition().getRow() == position.getRow() && list.getPosition().getColumn() == position.getColumn()) {
+            possiblePositions = list.mover(list);
+            }
         }
+
+        for(Position c : possiblePositions) {
+            returner += "Row: " + c.getRow() + " ";
+            returner += "Column: " + c.getColumn() + " ";
+            
         }
       
-        return null;
+        return returner;
 
     }
 
 
 
-    public void possibleMovimentList(Position position, Position positionNew) {
+    public void mover(Position position, Position positionNew) {
         List<Position> posiblePositions = new ArrayList<>();
         for(Piece list : piecesList) {
             if(list.getPosition().getRow() == position.getRow() && list.getPosition().getColumn() == position.getColumn()) {
