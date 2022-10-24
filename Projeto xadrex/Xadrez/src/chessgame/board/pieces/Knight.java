@@ -1,4 +1,5 @@
 package chessgame.board.pieces;
+import java.util.ArrayList;
 import java.util.List;
 
 import chessgame.board.pieces.enums.Color;
@@ -12,16 +13,30 @@ public class Knight extends Piece {
     public Knight() {
     }
 
-    @Override
-    public String possibleMoivments(Piece piece) {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
     @Override
     public List<Position> mover(Piece piece) {
-        // TODO Auto-generated method stub
-        return null;
+        List<Position> possiblePositions = new ArrayList<>();
+
+        if(piece.getPosition().getColumn() + 1 <= 7 && piece.getPosition().getRow() + 2 <= 7) {
+        possiblePositions.add(new Position(piece.getPosition().getRow() + 2, piece.getPosition().getColumn() + 1));
+        }
+        if(piece.getPosition().getColumn() - 1 >= 0 && piece.getPosition().getRow() + 2 <= 7) {
+        possiblePositions.add(new Position(piece.getPosition().getRow() + 2, piece.getPosition().getColumn() - 1));
+        }
+        if(piece.getPosition().getColumn() + 1 >= 8 && piece.getPosition().getRow() + 2 <= 7) {
+         possiblePositions.add(new Position(piece.getPosition().getRow() + 2, piece.getPosition().getColumn() + 1));
+         }    
+        if(piece.getPosition().getColumn() - 1 >= 0 && piece.getPosition().getRow() - 2 >= 0) {
+            possiblePositions.add(new Position(piece.getPosition().getRow() - 2, piece.getPosition().getColumn() - 1));
+        }
+        if(piece.getPosition().getColumn() + 1 <= 7 && piece.getPosition().getRow() - 2 >= 0) {
+            possiblePositions.add(new Position(piece.getPosition().getRow() - 2, piece.getPosition().getColumn() + 1));
+        }
+        
+
+
+        return possiblePositions;
     }
     
     

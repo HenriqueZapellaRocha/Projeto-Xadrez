@@ -14,12 +14,6 @@ public class Rook extends Piece {
     }
 
     @Override
-    public String possibleMoivments(Piece piece) {
-        
-        return null;
-    }
-
-    @Override
     public List<Position> mover(Piece piece) {
         List<Position> posiblePositions = new ArrayList<>();
 

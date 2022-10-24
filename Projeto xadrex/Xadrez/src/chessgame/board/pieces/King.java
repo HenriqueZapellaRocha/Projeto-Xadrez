@@ -12,11 +12,7 @@ public class King extends Piece {
     public King() {
     }
 
-    @Override
-    public String possibleMoivments(Piece piece) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+   
 
     @Override
     public List<Position> mover(Piece piece) {
