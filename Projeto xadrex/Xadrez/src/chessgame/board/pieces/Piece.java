@@ -55,7 +55,7 @@ public abstract class Piece {
     
 
 
-    public abstract List<Position> mover(Piece piece);
+    public abstract List<Position> mover(Piece piece, List<Piece> piecesList);
         
     
 

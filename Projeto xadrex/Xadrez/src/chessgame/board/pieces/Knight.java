@@ -15,7 +15,7 @@ public class Knight extends Piece {
 
 
     @Override
-    public List<Position> mover(Piece piece) {
+    public List<Position> mover(Piece piece, List<Piece> piecesList) {
         List<Position> possiblePositions = new ArrayList<>();
 
         if(piece.getPosition().getColumn() + 1 <= 7 && piece.getPosition().getRow() + 2 <= 7) {

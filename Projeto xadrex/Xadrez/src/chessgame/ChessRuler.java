@@ -131,7 +131,7 @@ public class ChessRuler {
         String returner = "";
         for(Piece list : piecesList) {
             if(list.getPosition().getRow() == position.getRow() && list.getPosition().getColumn() == position.getColumn()) {
-            possiblePositions = list.mover(list);
+            possiblePositions = list.mover(list, piecesList);
             }
         }
 
@@ -151,7 +151,7 @@ public class ChessRuler {
         List<Position> posiblePositions = new ArrayList<>();
         for(Piece list : piecesList) {
             if(list.getPosition().getRow() == position.getRow() && list.getPosition().getColumn() == position.getColumn()) {
-        posiblePositions = list.mover(list);
+        posiblePositions = list.mover(list, piecesList);
     }
         }
 

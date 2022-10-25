@@ -14,7 +14,7 @@ public class Rook extends Piece {
     }
 
     @Override
-    public List<Position> mover(Piece piece) {
+    public List<Position> mover(Piece piece, List<Piece> piecesList) {
         List<Position> posiblePositions = new ArrayList<>();
 
         for(int i = piece.getPosition().getRow(); i < 7; i++) {

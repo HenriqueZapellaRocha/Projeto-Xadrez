@@ -14,7 +14,7 @@ public class Queen extends Piece {
 
 
     @Override
-    public List<Position> mover(Piece piece) {
+    public List<Position> mover(Piece piece, List<Piece> piecesList) {
 
             List<Position> posiblePositions = new ArrayList<>();
         

@@ -29,7 +29,7 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public List<Position> mover(Piece piece) {
+    public List<Position> mover(Piece piece, List<Piece> piecesList) {
         List<Position> positions = new ArrayList<>();
         if(piece.getColor().toString().equals("WHITE")){
             if(piece.getPosition().getRow() != 0) {
@@ -40,7 +40,7 @@ public class Pawn extends Piece {
                 if(piece.getPosition().getRow() != 7) {
                     positions.add(new Position(piece.getPosition().getRow() + 1, piece.getPosition().getColumn()));
     
-                    }
+                 }
                 }
         
         return positions;
