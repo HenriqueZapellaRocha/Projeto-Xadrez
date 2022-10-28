@@ -24,7 +24,7 @@ public class Knight extends Piece {
         if(piece.getPosition().getColumn() - 1 >= 0 && piece.getPosition().getRow() + 2 <= 7) {
         possiblePositions.add(new Position(piece.getPosition().getRow() + 2, piece.getPosition().getColumn() - 1));
         }
-        if(piece.getPosition().getColumn() + 1 >= 8 && piece.getPosition().getRow() + 2 <= 7) {
+        if(piece.getPosition().getColumn() + 1 <= 7 && piece.getPosition().getRow() + 2 <= 7) {
          possiblePositions.add(new Position(piece.getPosition().getRow() + 2, piece.getPosition().getColumn() + 1));
          }    
         if(piece.getPosition().getColumn() - 1 >= 0 && piece.getPosition().getRow() - 2 >= 0) {
