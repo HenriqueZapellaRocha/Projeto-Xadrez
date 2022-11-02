@@ -22,6 +22,7 @@ public class Program {
     int rowNew = sc.nextInt() ;
     int columnNew = sc.nextInt() ;
    chessRuler.mover(new Position(row, column), new Position(rowNew, columnNew));
+
    
 }
 

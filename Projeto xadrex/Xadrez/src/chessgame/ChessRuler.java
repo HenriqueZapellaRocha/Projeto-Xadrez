@@ -56,7 +56,7 @@ public class ChessRuler {
     piecesList.add(new Pawn("PAWN", new Position(1, 0), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 1), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 2), Color.valueOf("BLACK")));
-    piecesList.add(new Pawn("PAWN", new Position(1, 3), Color.valueOf("BLACK")));
+    piecesList.add(new Pawn("PAWN", new Position(5, 3), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 4), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 5), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 6), Color.valueOf("BLACK")));
@@ -75,7 +75,7 @@ public class ChessRuler {
     piecesList.add(new Queen("QUEEN", new Position(0, 3), Color.valueOf("BLACK")));
 
     // add white rook 
-    piecesList.add(new Rook("ROOK", new Position(7, 0), Color.valueOf("WHITE")));
+    piecesList.add(new Rook("ROOK", new Position(5, 0), Color.valueOf("WHITE")));
     piecesList.add(new Rook("ROOK", new Position(7, 7), Color.valueOf("WHITE")));
 
     // add black rook
@@ -155,19 +155,33 @@ public class ChessRuler {
     }
         }
 
-        for(Position c : posiblePositions) {
-            if(c.getRow() == positionNew.getRow() && c.getColumn() == positionNew.getColumn()) {
-                for(Piece piecelistt : piecesList) {
-                    if (piecelistt.getPosition().getRow() == position.getRow() && piecelistt.getPosition().getColumn() == position.getColumn()) {
-                    piecelistt.setPosition(new Position(positionNew.getRow(), positionNew.getColumn()));
-                    }
+
+   
+        for(int i = 0; i <  posiblePositions.size(); i ++) {
+            if(posiblePositions.get(i).getRow() == positionNew.getRow() && posiblePositions.get(i).getColumn() == positionNew.getColumn()) {
+                remover(positionNew, piecesList.get(i));
+            for(int j = 0; j < piecesList.size(); j++) {
+                if(piecesList.get(j).getPosition().getRow() == position.getRow() && piecesList.get(j).getPosition().getColumn() == position.getColumn()) {
+                     piecesList.get(j).setPosition(new Position(positionNew.getRow(), positionNew.getColumn()));
+
                 }
             }
+            }
         }
-    
+       
+         
     
     }
-  
+
+    public void remover(Position positionNew, Piece piece) {
+        for(int i =  0; i < piecesList.size(); i++) {
+            if(positionNew.getRow() == piecesList.get(i).getPosition().getRow() && positionNew.getColumn() == piecesList.get(i).getPosition().getColumn()) {
+                piecesList.remove(i);
+            }
+        }
+      
+    }
+
    }
 
 

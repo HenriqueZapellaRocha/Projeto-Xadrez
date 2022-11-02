@@ -68,6 +68,26 @@ public class Rook extends Piece {
     
                     posiblePositions.remove(j);
                 }
+                } else {
+                    if(piecesList.get(i).getPosition().getRow() == posiblePositions.get(j).getRow() && piecesList.get(i).getPosition().getColumn() == posiblePositions.get(j).getColumn()) {
+                        if(piecesList.get(i).getPosition().getRow() > piece.getPosition().getRow() && piecesList.get(i).getPosition().getColumn() == piece.getPosition().getColumn()) {
+                            for(int k = 0; k < 8 - piecesList.get(i).getPosition().getRow(); k++) {
+                            remover.add(new Position(piecesList.get(i).getPosition().getRow() + k, piecesList.get(i).getPosition().getColumn()));
+                            }
+                        }  if(piecesList.get(i).getPosition().getRow() < piece.getPosition().getRow() && piecesList.get(i).getPosition().getColumn() == piece.getPosition().getColumn()) {
+                            for(int k = 1; k <= piecesList.get(i).getPosition().getRow(); k++) {
+                            remover.add(new Position(piecesList.get(i).getPosition().getRow() - k, piecesList.get(i).getPosition().getColumn()));
+                            }
+                        }  if(piecesList.get(i).getPosition().getRow() == piece.getPosition().getRow() && piecesList.get(i).getPosition().getColumn() > piece.getPosition().getColumn()) {
+                            for(int k = 1; k < 8 - piecesList.get(i).getPosition().getColumn(); k++) {
+                            remover.add(new Position(piecesList.get(i).getPosition().getRow(),  piecesList.get(i).getPosition().getColumn() + k));
+                            }
+                        } if(piecesList.get(i).getPosition().getRow() == piece.getPosition().getRow() && piecesList.get(i).getPosition().getColumn() < piece.getPosition().getColumn()) {
+                            for(int k = 1; k <= 7 ; k++) {
+                            remover.add(new Position(piecesList.get(i).getPosition().getRow(), piecesList.get(i).getPosition().getColumn() - k));
+                            }
+                        }
+                    }    
                 }
        
             }   

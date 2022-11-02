@@ -37,6 +37,7 @@ public abstract class Piece {
         return color;
     }    
 
+    
    
     public static int setColumn(int column) {
         return 0;
