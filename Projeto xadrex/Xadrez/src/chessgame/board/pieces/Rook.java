@@ -35,8 +35,53 @@ public class Rook extends Piece {
         
         }
       
+        posiblePositions = someoneInMyWay(piece, posiblePositions, piecesList);
+
     return posiblePositions;
     }
+
+    public List<Position> someoneInMyWay(Piece piece, List<Position> posiblePositions, List<Piece> piecesList){
+
+        List<Position> remover = new ArrayList<>();
+
+        for(int i =0; i < piecesList.size(); i++){
+            for(int j = 0; j < posiblePositions.size(); j++) {
+                if(piecesList.get(i).getColor() == piece.getColor()) {
+                if(piecesList.get(i).getPosition().getRow() == posiblePositions.get(j).getRow() && piecesList.get(i).getPosition().getColumn() == posiblePositions.get(j).getColumn()) {
+                    if(piecesList.get(i).getPosition().getRow() > piece.getPosition().getRow() && piecesList.get(i).getPosition().getColumn() == piece.getPosition().getColumn()) {
+                        for(int k = 0; k < 8 - piecesList.get(i).getPosition().getRow(); k++) {
+                        remover.add(new Position(piecesList.get(i).getPosition().getRow() + k, piecesList.get(i).getPosition().getColumn()));
+                        }
+                    }  if(piecesList.get(i).getPosition().getRow() < piece.getPosition().getRow() && piecesList.get(i).getPosition().getColumn() == piece.getPosition().getColumn()) {
+                        for(int k = 1; k <= piecesList.get(i).getPosition().getRow(); k++) {
+                        remover.add(new Position(piecesList.get(i).getPosition().getRow() - k, piecesList.get(i).getPosition().getColumn()));
+                        }
+                    }  if(piecesList.get(i).getPosition().getRow() == piece.getPosition().getRow() && piecesList.get(i).getPosition().getColumn() > piece.getPosition().getColumn()) {
+                        for(int k = 1; k < 8 - piecesList.get(i).getPosition().getColumn(); k++) {
+                        remover.add(new Position(piecesList.get(i).getPosition().getRow(),  piecesList.get(i).getPosition().getColumn() + k));
+                        }
+                    } if(piecesList.get(i).getPosition().getRow() == piece.getPosition().getRow() && piecesList.get(i).getPosition().getColumn() < piece.getPosition().getColumn()) {
+                        for(int k = 1; k <= 7 ; k++) {
+                        remover.add(new Position(piecesList.get(i).getPosition().getRow(), piecesList.get(i).getPosition().getColumn() - k));
+                        }
+                    }
+    
+                    posiblePositions.remove(j);
+                }
+                }
+       
+            }   
+    }
+
+    for(int l = 0; l < remover.size(); l++){
+        for(int j = 0; j < posiblePositions.size(); j++){
+        if(posiblePositions.get(j).getRow() == remover.get(l).getRow() && posiblePositions.get(j).getColumn() == remover.get(l).getColumn()) {
+            posiblePositions.remove(j);
+        }
+        }
+    }  
+    return posiblePositions;
+}
 
 }
 
