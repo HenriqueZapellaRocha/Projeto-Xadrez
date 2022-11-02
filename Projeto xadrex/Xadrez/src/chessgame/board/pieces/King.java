@@ -43,6 +43,9 @@ public class King extends Piece {
     if(piece.getPosition().getRow() - 1 != -1 && piece.getPosition().getColumn() + 1 != 8 ) {
     possiblePositions.add(new Position(piece.getPosition().getRow() - 1, piece.getPosition().getColumn() + 1));
     }
+    if(piece.getPosition().getRow() - 1 != -1 && piece.getPosition().getColumn() + 1 != 8 ) {
+        possiblePositions.add(new Position(piece.getPosition().getRow() - 1, piece.getPosition().getColumn() - 1));
+        }
     if(piece.getPosition().getRow() + 1 != 8 && piece.getPosition().getColumn() - 1 != -1 ) {
     possiblePositions.add(new Position(piece.getPosition().getRow() + 1, piece.getPosition().getColumn() - 1));
     }

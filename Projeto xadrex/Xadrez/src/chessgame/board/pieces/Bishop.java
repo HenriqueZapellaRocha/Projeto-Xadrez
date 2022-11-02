@@ -31,12 +31,12 @@ public class Bishop extends Piece {
                 posiblePositions.add(new Position(piece.getPosition().getRow() - i, piece.getPosition().getColumn() + i));
                 }
             }
-            for(int i = 7; i >= 0; i--) {
+            for(int i = 8; i >= 1; i--) {
                 if(piece.getPosition().getRow() - i >= 0 && piece.getPosition().getColumn() -i >= 0)  {
                 posiblePositions.add(new Position(piece.getPosition().getRow() - i, piece.getPosition().getColumn() - i));
                 }
             }
-            for(int i = 7; i >= 0; i--) {
+            for(int i = 8; i >= 1; i--) {
                 if(piece.getPosition().getRow() + i <= 7 && piece.getPosition().getColumn() - i >= 0)  {
                 posiblePositions.add(new Position(piece.getPosition().getRow() + i, piece.getPosition().getColumn() - i));
                 }
