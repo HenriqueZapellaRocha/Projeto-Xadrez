@@ -56,7 +56,7 @@ public class ChessRuler {
     piecesList.add(new Pawn("PAWN", new Position(1, 0), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 1), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 2), Color.valueOf("BLACK")));
-    piecesList.add(new Pawn("PAWN", new Position(5, 3), Color.valueOf("BLACK")));
+    piecesList.add(new Pawn("PAWN", new Position(1, 3), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 4), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 5), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 6), Color.valueOf("BLACK")));
@@ -75,7 +75,7 @@ public class ChessRuler {
     piecesList.add(new Queen("QUEEN", new Position(0, 3), Color.valueOf("BLACK")));
 
     // add white rook 
-    piecesList.add(new Rook("ROOK", new Position(5, 0), Color.valueOf("WHITE")));
+    piecesList.add(new Rook("ROOK", new Position(7, 0), Color.valueOf("WHITE")));
     piecesList.add(new Rook("ROOK", new Position(7, 7), Color.valueOf("WHITE")));
 
     // add black rook
@@ -108,17 +108,41 @@ public class ChessRuler {
     // add the pieces in the board
     for(Piece list : piecesList) {
         if (list.getName().equals("PAWN")) {
+        if(list.getColor().toString().equals("WHITE")) {
             chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 1;
+        } else {
+            chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 12;
+        }
         } else if (list.getName().equals("KING")) {
-            chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 2;
+          if(list.getColor().toString().equals("WHITE")) {
+                chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 2;
+            } else {
+                chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 22;
+            }
         } else if (list.getName().equals("QUEEN")) {
-            chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 3;
+            if(list.getColor().toString().equals("WHITE")) {
+                chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 3;
+            } else {
+                chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 32;
+            }
         } else if (list.getName().equals("ROOK")) {
-            chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 4;
+            if(list.getColor().toString().equals("WHITE")) {
+                chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 4;
+            } else {
+                chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 42;
+            }
         } else if (list.getName().equals("KNIGHT")){
-            chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 5;
+            if(list.getColor().toString().equals("WHITE")) {
+                chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 5;
+            } else {
+                chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 52;
+            }
         } else if (list.getName().equals("BISHOP")){
-            chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 6;
+            if(list.getColor().toString().equals("WHITE")) {
+                chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 6;
+            } else {
+                chessboard [list.getPosition().getRow()] [list.getPosition().getColumn()] = 62;
+            }
         }
         }
 
