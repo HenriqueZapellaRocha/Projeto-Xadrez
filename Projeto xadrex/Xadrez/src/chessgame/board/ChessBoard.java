@@ -38,7 +38,7 @@ public class ChessBoard {
             } else if (chessboard[i][j] == 2) {
             boardprinted += "K ";
             } else if (chessboard[i][j] == 22) {
-                boardprinted += ANSI_YELLOW + "k " + ANSI_RESET; 
+                boardprinted += ANSI_YELLOW + "K " + ANSI_RESET; 
             } else if (chessboard[i][j] == 3) {
             boardprinted += "Q ";
             } else if (chessboard[i][j] == 32) {

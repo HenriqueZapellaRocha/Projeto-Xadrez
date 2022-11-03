@@ -161,7 +161,8 @@ public class ChessRuler {
 
         for(Position c : possiblePositions) {
             returner += "Row: " + c.getRow() + " ";
-            returner += "Column: " + c.getColumn() + " ";
+            returner += "Column: " + c.getColumn() + ", ";
+           
             
         }
       
