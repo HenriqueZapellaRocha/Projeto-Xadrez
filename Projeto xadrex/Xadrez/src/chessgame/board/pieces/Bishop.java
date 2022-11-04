@@ -55,46 +55,45 @@ public class Bishop extends Piece {
     List<Position> equals = new ArrayList<>();
  
 
-    for(int i =0; i < piecesList.size(); i++){
+    for(int i = 0; i < piecesList.size(); i++){
         for(int j = 0; j < posiblePositions.size(); j++) {
           if(piecesList.get(i).getColor() == piece.getColor()) {
             if(piecesList.get(i).getPosition().getRow() == posiblePositions.get(j).getRow() && piecesList.get(i).getPosition().getColumn() == posiblePositions.get(j).getColumn()) {
             if(piece.getPosition().getRow() < piecesList.get(i).getPosition().getRow() && piece.getPosition().getColumn() > piecesList.get(i).getPosition().getColumn()) {
-                for(int k = 0; k < 8 - piecesList.get(i).getPosition().getRow(); k++){
+                for(int k = 1; k <= 7 - piecesList.get(i).getPosition().getRow(); k++){
                     equals.add(new Position(piecesList.get(i).getPosition().getRow() + k, piecesList.get(i).getPosition().getColumn() - k));
                 } 
             } if(piece.getPosition().getRow() > piecesList.get(i).getPosition().getRow() && piece.getPosition().getColumn() > piecesList.get(i).getPosition().getColumn()) {
-                for(int k = 0; k <  piecesList.get(i).getPosition().getRow(); k++){
+                for(int k = 1; k <= piecesList.get(i).getPosition().getRow(); k++){
                     equals.add(new Position(piecesList.get(i).getPosition().getRow() - k, piecesList.get(i).getPosition().getColumn() - k));
                 }        
             }  if(piece.getPosition().getRow() < piecesList.get(i).getPosition().getRow() && piece.getPosition().getColumn() < piecesList.get(i).getPosition().getColumn()) {
-                for(int k = 0; k < 8 - piecesList.get(i).getPosition().getRow(); k++){
+                for(int k = 1; k <= 7 - piecesList.get(i).getPosition().getRow(); k++){
                     equals.add(new Position(piecesList.get(i).getPosition().getRow() + k, piecesList.get(i).getPosition().getColumn() + k));
                 }
             } if(piece.getPosition().getRow() > piecesList.get(i).getPosition().getRow() && piece.getPosition().getColumn() < piecesList.get(i).getPosition().getColumn()) {
-                for(int k = 0; k < piecesList.get(i).getPosition().getRow(); k++){
+                for(int k = 1; k <= piecesList.get(i).getPosition().getRow(); k++){
                     equals.add(new Position(piecesList.get(i).getPosition().getRow() - k, piecesList.get(i).getPosition().getColumn() + k));
                 }
             }
-           
+            posiblePositions.remove(j);
            }
-           posiblePositions.remove(j);
         } else {
             if(piecesList.get(i).getPosition().getRow() == posiblePositions.get(j).getRow() && piecesList.get(i).getPosition().getColumn() == posiblePositions.get(j).getColumn()) {
                 if(piece.getPosition().getRow() < piecesList.get(i).getPosition().getRow() && piece.getPosition().getColumn() > piecesList.get(i).getPosition().getColumn()) {
-                    for(int k = 0; k < 8 - piecesList.get(i).getPosition().getRow(); k++){
+                    for(int k = 1; k <= 7 - piecesList.get(i).getPosition().getRow(); k++){
                         equals.add(new Position(piecesList.get(i).getPosition().getRow() + k, piecesList.get(i).getPosition().getColumn() - k));
                     } 
                 } if(piece.getPosition().getRow() > piecesList.get(i).getPosition().getRow() && piece.getPosition().getColumn() > piecesList.get(i).getPosition().getColumn()) {
-                    for(int k = 0; k <  piecesList.get(i).getPosition().getRow(); k++){
+                    for(int k = 1; k <=  piecesList.get(i).getPosition().getRow(); k++){
                         equals.add(new Position(piecesList.get(i).getPosition().getRow() - k, piecesList.get(i).getPosition().getColumn() - k));
                     }        
                 }  if(piece.getPosition().getRow() < piecesList.get(i).getPosition().getRow() && piece.getPosition().getColumn() < piecesList.get(i).getPosition().getColumn()) {
-                    for(int k = 0; k < 8 - piecesList.get(i).getPosition().getRow(); k++){
+                    for(int k = 1; k <= 7 - piecesList.get(i).getPosition().getRow(); k++){
                         equals.add(new Position(piecesList.get(i).getPosition().getRow() + k, piecesList.get(i).getPosition().getColumn() + k));
                     }
                 } if(piece.getPosition().getRow() > piecesList.get(i).getPosition().getRow() && piece.getPosition().getColumn() < piecesList.get(i).getPosition().getColumn()) {
-                    for(int k = 0; k < piecesList.get(i).getPosition().getRow(); k++){
+                    for(int k = 1; k <= piecesList.get(i).getPosition().getRow(); k++){
                         equals.add(new Position(piecesList.get(i).getPosition().getRow() - k, piecesList.get(i).getPosition().getColumn() + k));
                     }
                 }
