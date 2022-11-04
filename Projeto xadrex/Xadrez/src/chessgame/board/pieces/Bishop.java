@@ -76,8 +76,9 @@ public class Bishop extends Piece {
                     equals.add(new Position(piecesList.get(i).getPosition().getRow() - k, piecesList.get(i).getPosition().getColumn() + k));
                 }
             }
-            posiblePositions.remove(j);
+           
            }
+           posiblePositions.remove(j);
         } else {
             if(piecesList.get(i).getPosition().getRow() == posiblePositions.get(j).getRow() && piecesList.get(i).getPosition().getColumn() == posiblePositions.get(j).getColumn()) {
                 if(piece.getPosition().getRow() < piecesList.get(i).getPosition().getRow() && piece.getPosition().getColumn() > piecesList.get(i).getPosition().getColumn()) {

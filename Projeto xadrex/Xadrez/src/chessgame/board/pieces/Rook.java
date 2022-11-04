@@ -1,7 +1,6 @@
 package chessgame.board.pieces;
 import java.util.ArrayList;
 import java.util.List;
-
 import chessgame.board.pieces.enums.Color;
 
 public class Rook extends Piece {
