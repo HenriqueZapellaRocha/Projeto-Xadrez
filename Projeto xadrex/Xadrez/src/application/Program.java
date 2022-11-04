@@ -2,10 +2,12 @@ package application;
 import chessgame.ChessRuler;
 import chessgame.board.ChessBoard;
 import chessgame.board.pieces.Position;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Program {
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws IOException, InterruptedException  {
         
     Scanner sc = new Scanner(System.in);
 
@@ -13,11 +15,11 @@ public class Program {
     chessRuler.addPieces();
 
    // clear terminal
-   try {
-    new ProcessBuilder("clear").inheritIO().start().waitFor();	// Para linux (acho que para mac também)
-  } catch(Exception e) {
-    e.printStackTrace();
-  }
+   if (System.getProperty("os.name").contains("Windows"))
+   new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+else
+   Runtime.getRuntime().exec("clear");
+
 
 
     while(true){
@@ -29,11 +31,10 @@ public class Program {
     System.out.print("  Piece Collumn: ");
     int  column = sc.nextInt() ;
     // clear terminal
-    try {
-        new ProcessBuilder("clear").inheritIO().start().waitFor();	// Para linux (acho que para mac também)
-      } catch(Exception e) {
-        e.printStackTrace();
-      }
+    if (System.getProperty("os.name").contains("Windows"))
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        else
+            Runtime.getRuntime().exec("clear");
     // chosse the possibilites e new position of hte piece
     System.out.println(chessRuler.borderComander());
     System.out.println("Possible moviments: "  +  chessRuler.possibleMoviment(new Position(row, column)));
@@ -44,11 +45,10 @@ public class Program {
     int columnNew = sc.nextInt() ;
    chessRuler.mover(new Position(row, column), new Position(rowNew, columnNew));
    // clear terminal
-   try {
-    new ProcessBuilder("clear").inheritIO().start().waitFor();	// Para linux (acho que para mac também)
-  } catch(Exception e) {
-    e.printStackTrace();
-  }
+   if (System.getProperty("os.name").contains("Windows"))
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        else
+            Runtime.getRuntime().exec("clear");
   
 }
 
