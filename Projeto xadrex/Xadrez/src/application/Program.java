@@ -2,12 +2,10 @@ package application;
 import chessgame.ChessRuler;
 import chessgame.board.ChessBoard;
 import chessgame.board.pieces.Position;
-
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Program {
-    public static void main(String[] args) throws InterruptedException, IOException  {
+    public static void main(String[] args)  {
         
     Scanner sc = new Scanner(System.in);
 
@@ -15,10 +13,11 @@ public class Program {
     chessRuler.addPieces();
 
    // clear terminal
-   if (System.getProperty("os.name").contains("Windows")) 
-   new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-   else 
-   Runtime.getRuntime().exec("clear");
+   try {
+    new ProcessBuilder("clear").inheritIO().start().waitFor();	// Para linux (acho que para mac também)
+  } catch(Exception e) {
+    e.printStackTrace();
+  }
 
 
     while(true){
@@ -30,10 +29,11 @@ public class Program {
     System.out.print("  Piece Collumn: ");
     int  column = sc.nextInt() ;
     // clear terminal
-    if (System.getProperty("os.name").contains("Windows")) 
-    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-    else 
-   Runtime.getRuntime().exec("clear");
+    try {
+        new ProcessBuilder("clear").inheritIO().start().waitFor();	// Para linux (acho que para mac também)
+      } catch(Exception e) {
+        e.printStackTrace();
+      }
     // chosse the possibilites e new position of hte piece
     System.out.println(chessRuler.borderComander());
     System.out.println("Possible moviments: "  +  chessRuler.possibleMoviment(new Position(row, column)));
@@ -44,12 +44,29 @@ public class Program {
     int columnNew = sc.nextInt() ;
    chessRuler.mover(new Position(row, column), new Position(rowNew, columnNew));
    // clear terminal
-   if (System.getProperty("os.name").contains("Windows")) 
-   new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-   else 
-   Runtime.getRuntime().exec("clear");
+   try {
+    new ProcessBuilder("clear").inheritIO().start().waitFor();	// Para linux (acho que para mac também)
+  } catch(Exception e) {
+    e.printStackTrace();
+  }
 }
 
         }
+
+        public final static void clearConsole()
+{
+    try
+    {
+        
+
+        
+            Runtime.getRuntime().exec("clear");
+        
+    }
+    catch (final Exception e)
+    {
+        //  Handle any exceptions.
+    }
+}
 
     } 
