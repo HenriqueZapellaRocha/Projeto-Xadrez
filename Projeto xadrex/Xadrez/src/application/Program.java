@@ -49,24 +49,9 @@ public class Program {
   } catch(Exception e) {
     e.printStackTrace();
   }
+  
 }
 
         }
-
-        public final static void clearConsole()
-{
-    try
-    {
-        
-
-        
-            Runtime.getRuntime().exec("clear");
-        
-    }
-    catch (final Exception e)
-    {
-        //  Handle any exceptions.
-    }
-}
 
     } 

@@ -184,7 +184,7 @@ public class ChessRuler {
    
         for(int i = 0; i <  posiblePositions.size(); i ++) {
             if(posiblePositions.get(i).getRow() == positionNew.getRow() && posiblePositions.get(i).getColumn() == positionNew.getColumn()) {
-                remover(positionNew, piecesList.get(i));
+              remover(positionNew, piecesList.get(i));
             for(int j = 0; j < piecesList.size(); j++) {
                 if(piecesList.get(j).getPosition().getRow() == position.getRow() && piecesList.get(j).getPosition().getColumn() == position.getColumn()) {
                      piecesList.get(j).setPosition(new Position(positionNew.getRow(), positionNew.getColumn()));
