@@ -114,24 +114,24 @@ public class Queen extends Piece {
             } else {
                 if(piecesList.get(i).getPosition().getRow() == posiblePositions.get(j).getRow() && piecesList.get(i).getPosition().getColumn() == posiblePositions.get(j).getColumn()) {
                     if(piece.getPosition().getRow() < piecesList.get(i).getPosition().getRow() && piece.getPosition().getColumn() > piecesList.get(i).getPosition().getColumn()) {
-                        for(int k = 0; k < 8 - piecesList.get(i).getPosition().getRow(); k++){
+                        for(int k = 1; k < 8 - piecesList.get(i).getPosition().getRow(); k++){
                             equals.add(new Position(piecesList.get(i).getPosition().getRow() + k, piecesList.get(i).getPosition().getColumn() - k));
                         } 
                     } if(piece.getPosition().getRow() > piecesList.get(i).getPosition().getRow() && piece.getPosition().getColumn() > piecesList.get(i).getPosition().getColumn()) {
-                        for(int k = 0; k <  piecesList.get(i).getPosition().getRow(); k++){
+                        for(int k = 1; k <=  piecesList.get(i).getPosition().getRow(); k++){
                             equals.add(new Position(piecesList.get(i).getPosition().getRow() - k, piecesList.get(i).getPosition().getColumn() - k));
                         }        
                     }  if(piece.getPosition().getRow() < piecesList.get(i).getPosition().getRow() && piece.getPosition().getColumn() < piecesList.get(i).getPosition().getColumn()) {
-                        for(int k = 0; k < 8 - piecesList.get(i).getPosition().getRow(); k++){
+                        for(int k = 1; k <= 7 - piecesList.get(i).getPosition().getRow(); k++){
                             equals.add(new Position(piecesList.get(i).getPosition().getRow() + k, piecesList.get(i).getPosition().getColumn() + k));
                         }
                     } if(piece.getPosition().getRow() > piecesList.get(i).getPosition().getRow() && piece.getPosition().getColumn() < piecesList.get(i).getPosition().getColumn()) {
-                        for(int k = 0; k < piecesList.get(i).getPosition().getRow(); k++){
+                        for(int k = 1; k <= piecesList.get(i).getPosition().getRow(); k++){
                             equals.add(new Position(piecesList.get(i).getPosition().getRow() - k, piecesList.get(i).getPosition().getColumn() + k));
                         }
                     }
                         if(piecesList.get(i).getPosition().getRow() > piece.getPosition().getRow() && piecesList.get(i).getPosition().getColumn() == piece.getPosition().getColumn()) {
-                            for(int k = 0; k < 8 - piecesList.get(i).getPosition().getRow(); k++) {
+                            for(int k = 1; k <= 7 - piecesList.get(i).getPosition().getRow(); k++) {
                             equals.add(new Position(piecesList.get(i).getPosition().getRow() + k, piecesList.get(i).getPosition().getColumn()));
                             }
                         }  if(piecesList.get(i).getPosition().getRow() < piece.getPosition().getRow() && piecesList.get(i).getPosition().getColumn() == piece.getPosition().getColumn()) {
@@ -139,7 +139,7 @@ public class Queen extends Piece {
                             equals.add(new Position(piecesList.get(i).getPosition().getRow() - k, piecesList.get(i).getPosition().getColumn()));
                             }
                         }  if(piecesList.get(i).getPosition().getRow() == piece.getPosition().getRow() && piecesList.get(i).getPosition().getColumn() > piece.getPosition().getColumn()) {
-                            for(int k = 1; k < 8 - piecesList.get(i).getPosition().getColumn(); k++) {
+                            for(int k = 1; k <= 7 - piecesList.get(i).getPosition().getColumn(); k++) {
                             equals.add(new Position(piecesList.get(i).getPosition().getRow(),  piecesList.get(i).getPosition().getColumn() + k));
                             }
                         } if(piecesList.get(i).getPosition().getRow() == piece.getPosition().getRow() && piecesList.get(i).getPosition().getColumn() < piece.getPosition().getColumn()) {
