@@ -56,7 +56,7 @@ public class ChessRuler {
     piecesList.add(new Pawn("PAWN", new Position(1, 0), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 1), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 2), Color.valueOf("BLACK")));
-    piecesList.add(new Pawn("PAWN", new Position(1, 3), Color.valueOf("BLACK")));
+    piecesList.add(new Pawn("PAWN", new Position(5, 3), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 4), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 5), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 6), Color.valueOf("BLACK")));

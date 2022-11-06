@@ -32,15 +32,28 @@ public class Pawn extends Piece {
 
         if(firstTry != 2) {
             if(piece.getColor().toString().equals("WHITE")){
-                if(piece.getPosition().getRow() -2 >= 0) {
+               
                positions.add(new Position(piece.getPosition().getRow() - 2, piece.getPosition().getColumn()));
-                    }
+                
                 } else{
-                    if(piece.getPosition().getRow() + 2 <= 7) {
+                  
                         positions.add(new Position(piece.getPosition().getRow() + 2, piece.getPosition().getColumn()));
         
-                     }
-                    }       
+                     
+                    }
+                    
+                    if(piece.getColor().toString().equals("WHITE")){
+                       
+                       positions.add(new Position(piece.getPosition().getRow() - 1, piece.getPosition().getColumn()));
+                       
+                            
+                        } else{
+                           
+                                positions.add(new Position(piece.getPosition().getRow() + 1, piece.getPosition().getColumn()));
+                
+                             
+                            }
+
                     firstTry++;
         } else {
             if(piece.getColor().toString().equals("WHITE")){
@@ -49,10 +62,10 @@ public class Pawn extends Piece {
            
                 }
             } else{
-                if(piece.getPosition().getRow() + 1 <= 7) {
+              
                     positions.add(new Position(piece.getPosition().getRow() + 1, piece.getPosition().getColumn()));
     
-                 }
+                 
                 }
             }
         positions = someoneInMyWay(piece, positions, piecesList);
@@ -64,17 +77,37 @@ public class Pawn extends Piece {
 
     public List<Position> someoneInMyWay(Piece piece, List<Position> posiblePositions, List<Piece> piecesList){
         
-        for(int i =0; i < piecesList.size(); i++){
+        boolean first = true;
+
+        List<Position> enPassant = new ArrayList<>();
+
+        for(int i = 0; i < piecesList.size(); i++){
             for(int j = 0; j < posiblePositions.size(); j++) {
                 if(piecesList.get(i).getPosition().getRow() == posiblePositions.get(j).getRow() && piecesList.get(i).getPosition().getColumn() == posiblePositions.get(j).getColumn()) {
-                posiblePositions.remove(j);
+                    posiblePositions.remove(j);
+                    if(first == true) { // en passant
+                        for(int k = 0; k < piecesList.size() ; k++) { 
+                            if(piecesList.get(k).getPosition().getRow()  == piece.getPosition().getRow() + 1 && piecesList.get(k).getPosition().getColumn() ==  piece.getPosition().getColumn() + 1) {
+                               enPassant.add(new Position(piece.getPosition().getRow() + 1, piece.getPosition().getColumn() + 1));
+                               
+                            }
+                        }
+                        first = false;
+                    }
             }
             }   
-
-
         }
+        
+  // add en passant possible moviemnts 
+  if(first == false) {      
+  for(int i = 0; i < enPassant.size(); i++) {
+    posiblePositions.add(new Position(enPassant.get(i).getRow(), enPassant.get(i).getColumn()));
+  }
+}     
+
         return posiblePositions;
     }
+
 
 }
 

@@ -2,7 +2,6 @@ package application;
 import chessgame.ChessRuler;
 import chessgame.board.ChessBoard;
 import chessgame.board.pieces.Position;
-
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -17,7 +16,7 @@ public class Program {
    // clear terminal
    if (System.getProperty("os.name").contains("Windows"))
    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-else
+   else
    Runtime.getRuntime().exec("clear");
 
 
@@ -35,6 +34,7 @@ else
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         else
             Runtime.getRuntime().exec("clear");
+
     // chosse the possibilites e new position of hte piece
     System.out.println(chessRuler.borderComander());
     System.out.println("Possible moviments: "  +  chessRuler.possibleMoviment(new Position(row, column)));
@@ -44,6 +44,7 @@ else
     System.out.print("new position collumn: ");
     int columnNew = sc.nextInt() ;
    chessRuler.mover(new Position(row, column), new Position(rowNew, columnNew));
+   
    // clear terminal
    if (System.getProperty("os.name").contains("Windows"))
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
