@@ -24,7 +24,6 @@ public abstract class Piece {
 
     
 
-
     public Position getPosition() {
         return position;
     }

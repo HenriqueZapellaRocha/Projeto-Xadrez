@@ -56,7 +56,7 @@ public class ChessRuler {
     piecesList.add(new Pawn("PAWN", new Position(1, 0), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 1), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 2), Color.valueOf("BLACK")));
-    piecesList.add(new Pawn("PAWN", new Position(5, 3), Color.valueOf("BLACK")));
+    piecesList.add(new Pawn("PAWN", new Position(1, 3), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 4), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 5), Color.valueOf("BLACK")));
     piecesList.add(new Pawn("PAWN", new Position(1, 6), Color.valueOf("BLACK")));
@@ -155,6 +155,13 @@ public class ChessRuler {
         String returner = "";
         for(Piece list : piecesList) {
             if(list.getPosition().getRow() == position.getRow() && list.getPosition().getColumn() == position.getColumn()) {
+                if(list.getName().toString() == "KING") {
+                    for(int i = 0; i < piecesList.size(); i++) {
+                        if(piecesList.get(i).getPosition().getColumn() - 2 == position.getColumn() || piecesList.get(i).getPosition().getColumn() - 2 == position.getColumn() && piecesList.get(i).getName().toString() == "Rook" ){
+                            
+                        }
+                    }
+                }
             possiblePositions = list.mover(list, piecesList);
             }
         }

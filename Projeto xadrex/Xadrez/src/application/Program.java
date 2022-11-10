@@ -5,6 +5,7 @@ import chessgame.board.pieces.Position;
 import java.io.IOException;
 import java.util.Scanner;
 
+
 public class Program {
     public static void main(String[] args) throws IOException, InterruptedException  {
         
@@ -13,13 +14,9 @@ public class Program {
     ChessRuler chessRuler = new ChessRuler(new ChessBoard(new Position(8, 8)));
     chessRuler.addPieces();
 
-   // clear terminal
-   if (System.getProperty("os.name").contains("Windows"))
-   new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-   else
-   Runtime.getRuntime().exec("clear");
-
-
+       
+     new ProcessBuilder("clear").inheritIO().start().waitFor();	
+   
 
     while(true){
    // Chosse the piece
@@ -29,11 +26,10 @@ public class Program {
     int row = sc.nextInt() ;
     System.out.print("  Piece Collumn: ");
     int  column = sc.nextInt() ;
-    // clear terminal
-    if (System.getProperty("os.name").contains("Windows"))
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        else
-            Runtime.getRuntime().exec("clear");
+
+    
+    new ProcessBuilder("clear").inheritIO().start().waitFor();	
+      
 
     // chosse the possibilites e new position of hte piece
     System.out.println(chessRuler.borderComander());
@@ -45,11 +41,9 @@ public class Program {
     int columnNew = sc.nextInt() ;
    chessRuler.mover(new Position(row, column), new Position(rowNew, columnNew));
    
-   // clear terminal
-   if (System.getProperty("os.name").contains("Windows"))
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        else
-            Runtime.getRuntime().exec("clear");
+   
+    new ProcessBuilder("clear").inheritIO().start().waitFor();	
+  
   
 }
 

@@ -5,6 +5,8 @@ import chessgame.board.pieces.enums.Color;
 
 public class Rook extends Piece {
 
+    private boolean neverMoved = true;
+
     public Rook(String name, Position position, Color color) {
         super(name, position, color);
     }
@@ -36,6 +38,7 @@ public class Rook extends Piece {
       
         posiblePositions = someoneInMyWay(piece, posiblePositions, piecesList);
 
+        neverMoved = false;
     return posiblePositions;
     }
 

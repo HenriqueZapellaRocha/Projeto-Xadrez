@@ -86,12 +86,7 @@ public class Pawn extends Piece {
                 if(piecesList.get(i).getPosition().getRow() == posiblePositions.get(j).getRow() && piecesList.get(i).getPosition().getColumn() == posiblePositions.get(j).getColumn()) {
                     posiblePositions.remove(j);
                     if(first == true) { // en passant
-                        for(int k = 0; k < piecesList.size() ; k++) { 
-                            if(piecesList.get(k).getPosition().getRow()  == piece.getPosition().getRow() + 1 && piecesList.get(k).getPosition().getColumn() ==  piece.getPosition().getColumn() + 1) {
-                               enPassant.add(new Position(piece.getPosition().getRow() + 1, piece.getPosition().getColumn() + 1));
-                               
-                            }
-                        }
+                           enPassant(enPassant, piecesList, piece);
                         first = false;
                     }
             }
@@ -102,13 +97,46 @@ public class Pawn extends Piece {
   if(first == false) {      
   for(int i = 0; i < enPassant.size(); i++) {
     posiblePositions.add(new Position(enPassant.get(i).getRow(), enPassant.get(i).getColumn()));
+   
   }
 }     
 
         return posiblePositions;
     }
 
+    public void enPassant(List<Position> enPassant, List<Piece> piecesList, Piece piece) {
+        if(piece.getColor().toString() == "BLACK") {
+        for(int k = 0; k < piecesList.size() ; k++) { 
+            if(piecesList.get(k).getPosition().getRow()  == piece.getPosition().getRow() + 1 && piecesList.get(k).getPosition().getColumn() ==  piece.getPosition().getColumn() + 1) {
+                if(piece.getPosition().getColumn() + 1 <= 7) {
+               enPassant.add(new Position(piece.getPosition().getRow() + 1, piece.getPosition().getColumn() + 1));
+            }
+            }
+            if(piecesList.get(k).getPosition().getRow()  == piece.getPosition().getRow() + 1 && piecesList.get(k).getPosition().getColumn() ==  piece.getPosition().getColumn() - 1) {
+               if(piece.getPosition().getColumn() - 1 >= 0) {
+               enPassant.add(new Position(piece.getPosition().getRow() + 1, piece.getPosition().getColumn() + -1));
+               }
+            }
+            }
+        
+    }
+    if(piece.getColor().toString() == "WHITE") {
+        for(int k = 0; k < piecesList.size() ; k++) { 
+            if(piecesList.get(k).getPosition().getRow()  == piece.getPosition().getRow() - 1 && piecesList.get(k).getPosition().getColumn() ==  piece.getPosition().getColumn() + 1) {
+                if(piece.getPosition().getColumn() + 1 <= 7) {
+               enPassant.add(new Position(piece.getPosition().getRow() - 1, piece.getPosition().getColumn() + 1));
+            }
+            }
+            if(piecesList.get(k).getPosition().getRow()  == piece.getPosition().getRow() - 1 && piecesList.get(k).getPosition().getColumn() ==  piece.getPosition().getColumn() - 1) {
+               if(piece.getPosition().getColumn() - 1 >= 0) {
+               enPassant.add(new Position(piece.getPosition().getRow() - 1, piece.getPosition().getColumn()  - 1));
+               }
+            }
+            }
+        
+    }
 
+}
 }
 
 

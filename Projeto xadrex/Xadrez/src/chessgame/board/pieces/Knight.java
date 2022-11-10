@@ -14,6 +14,8 @@ public class Knight extends Piece {
     }
 
 
+    // moviment method
+
     @Override
     public List<Position> mover(Piece piece, List<Piece> piecesList) {
         List<Position> possiblePositions = new ArrayList<>();
@@ -38,8 +40,34 @@ public class Knight extends Piece {
 
         return possiblePositions;
     }
-    
 
+    // overload for rooker moviment
+    
+    public List<Position> mover(Piece piece, List<Piece> piecesList, Piece pieceRook) {
+        List<Position> possiblePositions = new ArrayList<>();
+
+        if(piece.getPosition().getColumn() + 1 <= 7 && piece.getPosition().getRow() + 2 <= 7) {
+        possiblePositions.add(new Position(piece.getPosition().getRow() + 2, piece.getPosition().getColumn() + 1));
+        }
+        if(piece.getPosition().getColumn() - 1 >= 0 && piece.getPosition().getRow() + 2 <= 7) {
+        possiblePositions.add(new Position(piece.getPosition().getRow() + 2, piece.getPosition().getColumn() - 1));
+        }
+        if(piece.getPosition().getColumn() + 1 <= 7 && piece.getPosition().getRow() + 2 <= 7) {
+         possiblePositions.add(new Position(piece.getPosition().getRow() + 2, piece.getPosition().getColumn() + 1));
+         }    
+        if(piece.getPosition().getColumn() - 1 >= 0 && piece.getPosition().getRow() - 2 >= 0) {
+            possiblePositions.add(new Position(piece.getPosition().getRow() - 2, piece.getPosition().getColumn() - 1));
+        }
+        if(piece.getPosition().getColumn() + 1 <= 7 && piece.getPosition().getRow() - 2 >= 0) {
+            possiblePositions.add(new Position(piece.getPosition().getRow() - 2, piece.getPosition().getColumn() + 1));
+        }
+        
+        possiblePositions = someoneInMyWay(piece, possiblePositions, piecesList);
+
+        return possiblePositions;
+    }
+    
+ // remove possiblePosition with other piece int he position
     public List<Position> someoneInMyWay(Piece piece, List<Position> posiblePositions, List<Piece> piecesList){
 
         for(int i =0; i < piecesList.size(); i++){
